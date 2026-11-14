@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-14T11:55:37.689Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43592202822",
+  "generatedAt": "2026-11-14T12:04:25.960Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43592907245",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
@@ -16,12 +16,12 @@
       "currentPoints": 11000,
       "remainingCredits": 11000,
       "siteStreak": 1,
-      "finishedAt": "2026-11-14T11:55:26.081Z"
+      "finishedAt": "2026-11-14T12:04:08.401Z"
     },
     {
       "account": 2,
-      "name": "abuhg17",
-      "label": "abuhg17",
+      "name": "account-2",
+      "label": "account-2",
       "status": "skipped",
       "streak": 0,
       "lastCheckInDate": null,
