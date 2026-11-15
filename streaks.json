@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-15T13:04:50.487Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43713546472",
+  "generatedAt": "2026-11-15T20:00:59.269Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43751001768",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
@@ -8,32 +8,34 @@
       "name": "huang1988pioneer",
       "label": "huang1988pioneer",
       "status": "checked_in",
-      "streak": 2,
-      "lastCheckInDate": "2026-11-15",
+      "streak": 3,
+      "lastCheckInDate": "2026-11-16",
       "checkInDates": [
         "2026-11-14",
-        "2026-11-15"
+        "2026-11-15",
+        "2026-11-16"
       ],
-      "currentPoints": 11395.716,
-      "remainingCredits": 11395.716,
-      "siteStreak": 2,
-      "finishedAt": "2026-11-15T13:04:05.771Z"
+      "currentPoints": 11795.716,
+      "remainingCredits": 11795.716,
+      "siteStreak": 3,
+      "finishedAt": "2026-11-15T20:00:36.330Z"
     },
     {
       "account": 2,
       "name": "abuhg17",
       "label": "abuhg17",
       "status": "checked_in",
-      "streak": 2,
-      "lastCheckInDate": "2026-11-15",
+      "streak": 3,
+      "lastCheckInDate": "2026-11-16",
       "checkInDates": [
         "2026-11-14",
-        "2026-11-15"
+        "2026-11-15",
+        "2026-11-16"
       ],
       "currentPoints": 800,
       "remainingCredits": 800,
       "siteStreak": 2,
-      "finishedAt": "2026-11-15T13:04:38.168Z"
+      "finishedAt": "2026-11-15T20:00:28.026Z"
     },
     {
       "account": 3,
@@ -443,8 +445,8 @@
   "streakSource": "recorded_check_ins",
   "summary": {
     "recorded": 33,
-    "max": 2,
+    "max": 3,
     "min": 0,
-    "average": 0.1
+    "average": 0.2
   }
 }
