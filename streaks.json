@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-16T01:15:24.195Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43780932199",
+  "generatedAt": "2026-11-16T04:00:00.880Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/43799743072",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
@@ -15,10 +15,10 @@
         "2026-11-15",
         "2026-11-16"
       ],
-      "currentPoints": 11795.716,
-      "remainingCredits": 11795.716,
+      "currentPoints": 11746.937,
+      "remainingCredits": 11746.937,
       "siteStreak": 3,
-      "finishedAt": "2026-11-16T01:14:55.089Z"
+      "finishedAt": "2026-11-16T03:59:23.639Z"
     },
     {
       "account": 2,
@@ -35,7 +35,7 @@
       "currentPoints": 800,
       "remainingCredits": 800,
       "siteStreak": 2,
-      "finishedAt": "2026-11-16T01:14:39.704Z"
+      "finishedAt": "2026-11-16T03:59:47.088Z"
     },
     {
       "account": 3,
