@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-17T12:11:23.320Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44074379044",
+  "generatedAt": "2026-11-17T14:15:22.664Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44098113548",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
       "account": 1,
-      "name": "422 155 (‪Jacklee backup‬)",
-      "label": "422 155 (‪Jacklee backup‬)",
+      "name": "422 155",
+      "label": "422 155",
       "status": "checked_in",
       "streak": 4,
       "lastCheckInDate": "2026-11-17",
@@ -19,7 +19,7 @@
       "currentPoints": 12746.937,
       "remainingCredits": 12746.937,
       "siteStreak": 4,
-      "finishedAt": "2026-11-17T12:10:49.392Z"
+      "finishedAt": "2026-11-17T14:14:41.735Z"
     },
     {
       "account": 2,
@@ -37,7 +37,7 @@
       "currentPoints": 2200,
       "remainingCredits": 2200,
       "siteStreak": 4,
-      "finishedAt": "2026-11-17T12:10:58.343Z"
+      "finishedAt": "2026-11-17T14:14:50.681Z"
     },
     {
       "account": 3,
