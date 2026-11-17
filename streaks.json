@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-17T02:22:42.622Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44002298043",
+  "generatedAt": "2026-11-17T03:01:55.414Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44006984642",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
       "account": 1,
-      "name": "huang1988pioneer",
-      "label": "huang1988pioneer",
+      "name": "422 155 (‪Jacklee backup‬)",
+      "label": "422 155 (‪Jacklee backup‬)",
       "status": "checked_in",
       "streak": 4,
       "lastCheckInDate": "2026-11-17",
@@ -19,12 +19,12 @@
       "currentPoints": 12746.937,
       "remainingCredits": 12746.937,
       "siteStreak": 4,
-      "finishedAt": "2026-11-17T02:22:15.493Z"
+      "finishedAt": "2026-11-17T03:01:08.453Z"
     },
     {
       "account": 2,
-      "name": "abuhg17",
-      "label": "abuhg17",
+      "name": "MiniMax370990",
+      "label": "MiniMax370990",
       "status": "checked_in",
       "streak": 4,
       "lastCheckInDate": "2026-11-17",
@@ -37,12 +37,12 @@
       "currentPoints": 1200,
       "remainingCredits": 1200,
       "siteStreak": 3,
-      "finishedAt": "2026-11-17T02:22:16.623Z"
+      "finishedAt": "2026-11-17T03:01:34.038Z"
     },
     {
       "account": 3,
-      "name": "goldshoot0720",
-      "label": "goldshoot0720",
+      "name": "account-3",
+      "label": "account-3",
       "status": "skipped",
       "streak": 0,
       "lastCheckInDate": null,
@@ -54,8 +54,8 @@
     },
     {
       "account": 4,
-      "name": "chbondg2",
-      "label": "chbondg2",
+      "name": "account-4",
+      "label": "account-4",
       "status": "skipped",
       "streak": 0,
       "lastCheckInDate": null,
@@ -67,8 +67,8 @@
     },
     {
       "account": 5,
-      "name": "feng33feng35feng3",
-      "label": "feng33feng35feng3",
+      "name": "account-5",
+      "label": "account-5",
       "status": "skipped",
       "streak": 0,
       "lastCheckInDate": null,
@@ -80,8 +80,8 @@
     },
     {
       "account": 6,
-      "name": "fengtuprinfo",
-      "label": "fengtuprinfo",
+      "name": "account-6",
+      "label": "account-6",
       "status": "skipped",
       "streak": 0,
       "lastCheckInDate": null,
