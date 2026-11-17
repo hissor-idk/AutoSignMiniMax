@@ -7,13 +7,36 @@ namespace MiniMaxFlow;
 
 internal sealed class GitHubActionsService
 {
-    public const string Repository = "huang1988pioneer/AutoSignMiniMax";
+    // The repository is never hard-coded: MINIMAXFLOW_REPOSITORY (owner/name) wins,
+    // otherwise it is <the account gh is signed in as>/AutoSignMiniMax.
+    private const string RepositoryEnvironmentVariable = "MINIMAXFLOW_REPOSITORY";
+    private const string DefaultRepositoryName = "AutoSignMiniMax";
+    private string? _repository;
     private const string Workflow = "checkin-minimax.yml";
     private static readonly Regex ClaimJobName = new(@"^check-in \((?<number>\d+)\) - (?<name>.+)$", RegexOptions.Compiled);
 
+    public async Task<string> GetRepositoryAsync()
+    {
+        if (_repository is not null) return _repository;
+
+        var configured = Environment.GetEnvironmentVariable(RepositoryEnvironmentVariable)?.Trim();
+        if (!string.IsNullOrEmpty(configured))
+        {
+            if (!Regex.IsMatch(configured, @"^[A-Za-z0-9-]+/[A-Za-z0-9._-]+$"))
+                throw new InvalidOperationException($"{RepositoryEnvironmentVariable} 必須是 owner/repo 格式。");
+            return _repository = configured;
+        }
+
+        var login = (await RunGhAsync("api", "user", "--jq", ".login")).Trim();
+        if (string.IsNullOrEmpty(login))
+            throw new InvalidOperationException("無法從 GitHub CLI 取得目前登入的帳號名稱。");
+        return _repository = $"{login}/{DefaultRepositoryName}";
+    }
+
     public async Task TriggerClaimAsync()
     {
-        await RunGhAsync("workflow", "run", Workflow, "--repo", Repository, "--ref", "main");
+        var repository = await GetRepositoryAsync();
+        await RunGhAsync("workflow", "run", Workflow, "--repo", repository, "--ref", "main");
     }
 
     public async Task PublishLoginStateAsync(int accountNumber, string storageStateBase64, string accountName)
@@ -27,22 +50,24 @@ internal sealed class GitHubActionsService
         if (string.IsNullOrWhiteSpace(accountName))
             throw new ArgumentException("帳號名稱不可為空白。", nameof(accountName));
 
+        var repository = await GetRepositoryAsync();
         var secretName = $"MINIMAX_STORAGE_STATE_B64_{accountNumber}";
         var variableName = $"MINIMAX_ACCOUNT_NAME_{accountNumber}";
 
         // Pass the sensitive state through stdin so it never appears in the process command line.
         await RunGhWithInputAsync(
             storageStateBase64,
-            "secret", "set", secretName, "--app", "actions", "--repo", Repository);
+            "secret", "set", secretName, "--app", "actions", "--repo", repository);
         await RunGhWithInputAsync(
             accountName,
-            "variable", "set", variableName, "--repo", Repository);
+            "variable", "set", variableName, "--repo", repository);
     }
 
     public async Task<DashboardSnapshot> GetSnapshotAsync(decimal pointsPerClaim)
     {
+        var repository = await GetRepositoryAsync();
         var runsJson = await RunGhAsync(
-            "run", "list", "--workflow", Workflow, "--repo", Repository, "--limit", "100",
+            "run", "list", "--workflow", Workflow, "--repo", repository, "--limit", "100",
             "--json", "databaseId,createdAt,conclusion,status,url,event");
         var runs = JsonSerializer.Deserialize<List<WorkflowRun>>(runsJson, JsonOptions) ?? [];
         var latest = runs.OrderByDescending(run => run.CreatedAt).FirstOrDefault();
@@ -105,7 +130,8 @@ internal sealed class GitHubActionsService
 
     private async Task<AccountResult[]> GetAccountResultsAsync(long runId)
     {
-        var detailsJson = await RunGhAsync("run", "view", runId.ToString(), "--repo", Repository, "--json", "jobs");
+        var repository = await GetRepositoryAsync();
+        var detailsJson = await RunGhAsync("run", "view", runId.ToString(), "--repo", repository, "--json", "jobs");
         using var document = JsonDocument.Parse(detailsJson);
         if (!document.RootElement.TryGetProperty("jobs", out var jobs)) return [];
 

@@ -264,8 +264,11 @@ public partial class MainWindow : Window
         var accountNumber = AccountNumber;
         var secretName = SecretName;
         var variableName = AccountNameVariable;
-        var accountName = AccountAlias ?? $"account-{accountNumber}";
-        var encoded = Convert.ToBase64String(await File.ReadAllBytesAsync(stateFile));
+        var stateBytes = await File.ReadAllBytesAsync(stateFile);
+        var accountName = AccountAlias
+            ?? AccountIdentity.FromStorageState(stateBytes)
+            ?? $"minimax-{accountNumber:00}";
+        var encoded = Convert.ToBase64String(stateBytes);
         var duplicateAccounts = await FindDuplicateStateFilesAsync(encoded);
         if (duplicateAccounts.Count > 0)
         {
@@ -367,15 +370,9 @@ public partial class MainWindow : Window
 
     private static Dictionary<int, string> LoadAccountAliases()
     {
-        var defaults = new Dictionary<int, string>
-        {
-            [1] = "huang1988pioneer",
-            [2] = "abuhg17",
-            [3] = "goldshoot0720",
-            [4] = "chbondg2",
-            [5] = "feng33feng35feng3",
-            [6] = "fengtuprinfo",
-        };
+        // No built-in names: aliases come from what the user typed, or are read
+        // from the MiniMax login itself when the state is published.
+        var defaults = new Dictionary<int, string>();
         if (!File.Exists(AliasFile)) return defaults;
 
         try

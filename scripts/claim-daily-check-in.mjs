@@ -12,11 +12,30 @@ import {
   parseSigninPanel,
   unwrapPayload,
 } from './minimax-signin.mjs';
+import {
+  accountNameFromStorageState,
+  findAccountName,
+  isUserInfoUrl,
+  resolveAccountName,
+} from './account-identity.mjs';
 
 const ORIGIN = (process.env.MINIMAX_ORIGIN || 'https://agent.minimax.io').replace(/\/+$/, '');
 const HOME_URL = `${ORIGIN}/`;
-const ACCOUNT_NAME = process.env.MINIMAX_ACCOUNT_NAME || 'default';
 const ACCOUNT_NUMBER = Number(process.env.MINIMAX_ACCOUNT_NUMBER) || null;
+// An alias set in MINIMAX_ACCOUNT_NAME_N wins; otherwise the name is read from
+// the MiniMax account itself once the login is loaded (see account-identity.mjs).
+const EXPLICIT_ACCOUNT_NAME = process.env.MINIMAX_ACCOUNT_NAME?.trim() || null;
+let ACCOUNT_NAME = resolveAccountName({ explicit: EXPLICIT_ACCOUNT_NAME, accountNumber: ACCOUNT_NUMBER });
+let detectedFromSite = false;
+
+function adoptDetectedName(name, source) {
+  if (EXPLICIT_ACCOUNT_NAME || !name || name === ACCOUNT_NAME) return;
+  if (detectedFromSite && source !== 'site') return;
+  const previous = ACCOUNT_NAME;
+  ACCOUNT_NAME = name;
+  if (source === 'site') detectedFromSite = true;
+  log(`Detected account name from ${source === 'site' ? 'MiniMax' : 'the stored login'} (was ${previous}).`);
+}
 const STATE_B64 = process.env.MINIMAX_STORAGE_STATE_B64;
 const COOKIE_HEADER = process.env.MINIMAX_COOKIE;
 const MAX_RETRIES = Number(process.env.MINIMAX_MAX_RETRIES) || 3;
@@ -245,6 +264,14 @@ function observeSignin(page) {
   page.on('response', async (response) => {
     const request = response.request();
     try {
+      if (!EXPLICIT_ACCOUNT_NAME && !detectedFromSite && isUserInfoUrl(response.url())) {
+        const type = response.headers()['content-type'] ?? '';
+        if (type.includes('json')) {
+          const payload = await response.json().catch(() => null);
+          adoptDetectedName(findAccountName(payload), 'site');
+        }
+        // Fall through: a user-info URL may also be one of the endpoints below.
+      }
       if (isMembershipRequest(request)) {
         const credits = parseCreditBalance(await response.json());
         if (credits !== null) currentPoints = credits;
@@ -455,6 +482,7 @@ async function main() {
   }
 
   const state = await storageStateFile();
+  if (state?.parsed) adoptDetectedName(accountNameFromStorageState(state.parsed), 'storage');
   let browser;
   let claimed = false;
   let resultMessage = 'Daily check-in was not completed.';

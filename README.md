@@ -68,7 +68,7 @@ base64 -w0 auth.json
 
 每個帳號只要設定其中一種登入方式即可，且 Storage State 優先。workflow 會執行全部 33 個編號；未設定 Secret 的帳號會自動略過，不必連續編號。
 
-帳號別名可用 Variables `MINIMAX_ACCOUNT_NAME_1` … `MINIMAX_ACCOUNT_NAME_33` 指定；未設定時，編號 `1`、`2`、`3`、`4`、`5`、`6` 會顯示為 `huang1988pioneer`、`abuhg17`、`goldshoot0720`、`chbondg2`、`feng33feng35feng3`、`fengtuprinfo`，其餘顯示為 `account-N`。
+帳號別名可用 Variables `MINIMAX_ACCOUNT_NAME_1` … `MINIMAX_ACCOUNT_NAME_33` 指定；未設定時，簽到腳本會從該帳號的 MiniMax 登入資訊自動讀取暱稱（Email、手機號會遮罩，例如 `le***@gmail.com`），讀不到時顯示為 `account-N`。程式碼中不再內建任何帳號名稱。
 
 請勿把 `auth.json`、Cookie 或任何登入憑證提交到儲存庫。
 
@@ -133,7 +133,7 @@ npm test
 | --- | --- | --- |
 | `MINIMAX_STORAGE_STATE_B64` | 無 | Base64 編碼的 Playwright Storage State JSON |
 | `MINIMAX_COOKIE` | 無 | 完整 Cookie Header |
-| `MINIMAX_ACCOUNT_NAME` | `default` | 用於日誌與截圖檔名的帳號識別 |
+| `MINIMAX_ACCOUNT_NAME` | 自動偵測 | 用於日誌與截圖檔名的帳號識別；留空時從 MiniMax 帳號自動讀取 |
 | `MINIMAX_ACCOUNT_NUMBER` | 無 | 帳號編號，決定要輪替的 Secret 名稱 |
 | `MINIMAX_MAX_RETRIES` | `3` | 最大嘗試次數 |
 | `MINIMAX_SCREENSHOT_DIR` | `./screenshots` | 截圖輸出資料夾 |
