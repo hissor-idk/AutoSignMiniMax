@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-19T14:38:59.510Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44539135881",
+  "generatedAt": "2026-11-20T02:42:16.828Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44657262962",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
@@ -8,40 +8,42 @@
       "name": "422 155",
       "label": "422 155",
       "status": "checked_in",
-      "streak": 6,
-      "lastCheckInDate": "2026-11-19",
+      "streak": 7,
+      "lastCheckInDate": "2026-11-20",
       "checkInDates": [
         "2026-11-14",
         "2026-11-15",
         "2026-11-16",
         "2026-11-17",
         "2026-11-18",
-        "2026-11-19"
+        "2026-11-19",
+        "2026-11-20"
       ],
-      "currentPoints": 13426.876,
-      "remainingCredits": 13426.876,
-      "siteStreak": 6,
-      "finishedAt": "2026-11-19T14:38:19.658Z"
+      "currentPoints": 14426.876,
+      "remainingCredits": 14426.876,
+      "siteStreak": 7,
+      "finishedAt": "2026-11-20T02:39:26.079Z"
     },
     {
       "account": 2,
       "name": "leobunglee",
       "label": "leobunglee",
       "status": "checked_in",
-      "streak": 6,
-      "lastCheckInDate": "2026-11-19",
+      "streak": 7,
+      "lastCheckInDate": "2026-11-20",
       "checkInDates": [
         "2026-11-14",
         "2026-11-15",
         "2026-11-16",
         "2026-11-17",
         "2026-11-18",
-        "2026-11-19"
+        "2026-11-19",
+        "2026-11-20"
       ],
       "currentPoints": 3000,
       "remainingCredits": 3000,
       "siteStreak": 6,
-      "finishedAt": "2026-11-19T14:38:31.369Z"
+      "finishedAt": "2026-11-20T02:41:54.024Z"
     },
     {
       "account": 3,
@@ -451,7 +453,7 @@
   "streakSource": "recorded_check_ins",
   "summary": {
     "recorded": 33,
-    "max": 6,
+    "max": 7,
     "min": 0,
     "average": 0.4
   }
