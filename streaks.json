@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-21T14:08:20.274Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44907378607",
+  "generatedAt": "2026-11-22T01:07:37.723Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/44968328665",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
@@ -8,8 +8,8 @@
       "name": "422 155",
       "label": "422 155",
       "status": "checked_in",
-      "streak": 8,
-      "lastCheckInDate": "2026-11-21",
+      "streak": 9,
+      "lastCheckInDate": "2026-11-22",
       "checkInDates": [
         "2026-11-14",
         "2026-11-15",
@@ -18,20 +18,21 @@
         "2026-11-18",
         "2026-11-19",
         "2026-11-20",
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-22"
       ],
-      "currentPoints": 14789.754,
-      "remainingCredits": 14789.754,
-      "siteStreak": 1,
-      "finishedAt": "2026-11-21T14:07:56.546Z"
+      "currentPoints": 15189.754,
+      "remainingCredits": 15189.754,
+      "siteStreak": 2,
+      "finishedAt": "2026-11-22T01:07:17.048Z"
     },
     {
       "account": 2,
       "name": "leobunglee",
       "label": "leobunglee",
       "status": "checked_in",
-      "streak": 8,
-      "lastCheckInDate": "2026-11-21",
+      "streak": 9,
+      "lastCheckInDate": "2026-11-22",
       "checkInDates": [
         "2026-11-14",
         "2026-11-15",
@@ -40,12 +41,13 @@
         "2026-11-18",
         "2026-11-19",
         "2026-11-20",
-        "2026-11-21"
+        "2026-11-21",
+        "2026-11-22"
       ],
-      "currentPoints": 4000,
-      "remainingCredits": 4000,
-      "siteStreak": 7,
-      "finishedAt": "2026-11-21T14:07:55.229Z"
+      "currentPoints": 4400,
+      "remainingCredits": 4400,
+      "siteStreak": 1,
+      "finishedAt": "2026-11-22T01:06:56.602Z"
     },
     {
       "account": 3,
@@ -455,7 +457,7 @@
   "streakSource": "recorded_check_ins",
   "summary": {
     "recorded": 33,
-    "max": 8,
+    "max": 9,
     "min": 0,
     "average": 0.5
   }
