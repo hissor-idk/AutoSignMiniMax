@@ -449,7 +449,25 @@ async function tryCheckInOnce(browser, state, contextOptions) {
       throw new Error('The MiniMax check-in button is present but disabled.');
     }
 
-    await button.click({ timeout: 10_000 });
+    // Playwright only clicks an element whose bounding box has not moved for two
+    // animation frames. The check-in card keeps animating (glow/pulse on the
+    // claim button), so actionability never settles: "element is not stable" and
+    // the click times out on every retry. Freeze animations, then fall back to a
+    // DOM click, which needs no geometry at all.
+    await page
+      .addStyleTag({
+        content: '*,*::before,*::after{animation:none!important;transition:none!important;}',
+      })
+      .catch(() => {});
+    await button.scrollIntoViewIfNeeded().catch(() => {});
+
+    try {
+      await button.click({ timeout: 10_000 });
+    } catch (error) {
+      await saveScreenshot(page, 'claim-click-retry');
+      log(`Native click failed (${cleanError(error)}); retrying with a DOM click.`);
+      await button.dispatchEvent('click', undefined, { timeout: 10_000 });
+    }
     log('Clicked the check-in button; waiting for the official claim response…');
     await observer.waitForClaim(CLAIM_TIMEOUT_MS);
 
