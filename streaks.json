@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-27T03:57:13.471Z",
-  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/45933830469",
+  "generatedAt": "2026-11-27T06:20:12.202Z",
+  "runUrl": "https://github.com/hissor-idk/AutoSignMiniMax/actions/runs/45947723242",
   "title": "MiniMax Code daily check-in results",
   "accounts": [
     {
       "account": 1,
       "name": "422 155",
       "label": "422 155",
-      "status": "failed",
-      "streak": 13,
-      "lastCheckInDate": "2026-11-26",
+      "status": "checked_in",
+      "streak": 14,
+      "lastCheckInDate": "2026-11-27",
       "checkInDates": [
         "2026-11-14",
         "2026-11-15",
@@ -23,12 +23,13 @@
         "2026-11-23",
         "2026-11-24",
         "2026-11-25",
-        "2026-11-26"
+        "2026-11-26",
+        "2026-11-27"
       ],
-      "currentPoints": 15000,
-      "remainingCredits": 15000,
-      "siteStreak": 6,
-      "finishedAt": "2026-11-27T03:56:46.071Z"
+      "currentPoints": 16000,
+      "remainingCredits": 16000,
+      "siteStreak": 7,
+      "finishedAt": "2026-11-27T06:19:18.558Z"
     },
     {
       "account": 2,
@@ -55,7 +56,7 @@
       "currentPoints": 6600,
       "remainingCredits": 6600,
       "siteStreak": 5,
-      "finishedAt": "2026-11-27T03:56:53.272Z"
+      "finishedAt": "2026-11-27T06:19:48.888Z"
     },
     {
       "account": 3,
@@ -465,7 +466,7 @@
   "streakSource": "recorded_check_ins",
   "summary": {
     "recorded": 33,
-    "max": 13,
+    "max": 14,
     "min": 0,
     "average": 0.8
   }
